@@ -1,0 +1,1 @@
+{"id":"9087792185370698","method":"KBaseReport.create","params":[{"report":{"objects_created":[],"text_message":"Hello World!"},"workspace_name":"test_ContigFilter_1559168065518"}],"version":"1.1","context":{"call_stack":[{"time":"2019-05-29T22:14:25+0000","method":"KBaseReport._create_submit"}],"service_ver":"release"}}
