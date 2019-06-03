@@ -32,11 +32,6 @@ class PhanotateUtil:
 
     def run(self, ctx, params):
 
-        logging.info(params['parameter_1'])
-
-        #os.system('ls -l')
-        os.system("python /kb/module/PHANOTATE/phanotate.py -h")
-
         return {'out' : 'test'} # needed because apparently a dict needs to be returned?
 
         # make reports
