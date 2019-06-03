@@ -13,4 +13,8 @@ module kb_phate {
     */
     funcdef run_kb_phate(mapping<string,UnspecifiedObject> params) returns (ReportResults output) authentication required;
 
+    funcdef run_phanotate(mapping<string,UnspecifiedObject> params) returns (ReportResults output) authentication required;
+
+    funcdef run_phate(mapping<string,UnspecifiedObject> params) returns (ReportResults output) authentication required;
+
 };

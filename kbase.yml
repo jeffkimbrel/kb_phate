@@ -2,14 +2,13 @@ module-name:
     kb_phate
 
 module-description:
-    A KBase module
+    A KBase module for viral structural and functional annotation using Phanotate and PhATE.
 
 service-language:
     python
 
 module-version:
-    0.0.1
+    0.0.2
 
 owners:
     [kimbrel1]
-

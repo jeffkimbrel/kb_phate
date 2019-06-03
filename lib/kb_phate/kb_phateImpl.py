@@ -23,8 +23,8 @@ class kb_phate:
     # the latter method is running.
     ######################################### noqa
     VERSION = "0.0.1"
-    GIT_URL = ""
-    GIT_COMMIT_HASH = ""
+    GIT_URL = "https://github.com/jeffkimbrel/kb_phate.git"
+    GIT_COMMIT_HASH = "5c0c179fdd3bd4543d30118436e887adc4a41c77"
 
     #BEGIN_CLASS_HEADER
     #END_CLASS_HEADER
@@ -64,6 +64,42 @@ class kb_phate:
         # At some point might do deeper type checking...
         if not isinstance(output, dict):
             raise ValueError('Method run_kb_phate return value ' +
+                             'output is not type dict as required.')
+        # return the results
+        return [output]
+
+    def run_phanotate(self, ctx, params):
+        """
+        :param params: instance of mapping from String to unspecified object
+        :returns: instance of type "ReportResults" -> structure: parameter
+           "report_name" of String, parameter "report_ref" of String
+        """
+        # ctx is the context object
+        # return variables are: output
+        #BEGIN run_phanotate
+        #END run_phanotate
+
+        # At some point might do deeper type checking...
+        if not isinstance(output, dict):
+            raise ValueError('Method run_phanotate return value ' +
+                             'output is not type dict as required.')
+        # return the results
+        return [output]
+
+    def run_phate(self, ctx, params):
+        """
+        :param params: instance of mapping from String to unspecified object
+        :returns: instance of type "ReportResults" -> structure: parameter
+           "report_name" of String, parameter "report_ref" of String
+        """
+        # ctx is the context object
+        # return variables are: output
+        #BEGIN run_phate
+        #END run_phate
+
+        # At some point might do deeper type checking...
+        if not isinstance(output, dict):
+            raise ValueError('Method run_phate return value ' +
                              'output is not type dict as required.')
         # return the results
         return [output]

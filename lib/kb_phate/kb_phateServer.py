@@ -342,6 +342,14 @@ class Application(object):
                              name='kb_phate.run_kb_phate',
                              types=[dict])
         self.method_authentication['kb_phate.run_kb_phate'] = 'required'  # noqa
+        self.rpc_service.add(impl_kb_phate.run_phanotate,
+                             name='kb_phate.run_phanotate',
+                             types=[dict])
+        self.method_authentication['kb_phate.run_phanotate'] = 'required'  # noqa
+        self.rpc_service.add(impl_kb_phate.run_phate,
+                             name='kb_phate.run_phate',
+                             types=[dict])
+        self.method_authentication['kb_phate.run_phate'] = 'required'  # noqa
         self.rpc_service.add(impl_kb_phate.status,
                              name='kb_phate.status',
                              types=[dict])
