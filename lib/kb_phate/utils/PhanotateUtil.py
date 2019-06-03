@@ -32,6 +32,8 @@ class PhanotateUtil:
 
     def run(self, ctx, params):
 
+        os.system('python /kb/module/PHANOTATE/phanotate.py /kb/module/PHANOTATE/test/NC_000866.1.fasta')
+
         return {'out' : 'test'} # needed because apparently a dict needs to be returned?
 
         # make reports
