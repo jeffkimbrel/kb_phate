@@ -63,5 +63,14 @@ class kb_phateTest(unittest.TestCase):
         #
         # Check returned data with
         # self.assertEqual(ret[...], ...) or other unittest methods
-        ret = self.serviceImpl.run_kb_phate(self.ctx, {'workspace_name': self.wsName,
-                                                             'parameter_1': 'Hello World!'})
+
+        # params_compare = {
+        #     "debug"                  : True,
+        #     "genome"                 : "27005/2/1",
+        #     "output_name"            : "compareGenome_temp",
+        #     "annotations_to_compare" : [],
+        #     "workspace_name"         : self.wsName
+        # }
+
+        ret = self.serviceImpl.run_phanotate(self.ctx, {'workspace_name': self.wsName,
+                                                             'parameter_1': '**Hello World!**'})

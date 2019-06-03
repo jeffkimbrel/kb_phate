@@ -4,6 +4,10 @@ import logging
 import os
 
 from installed_clients.KBaseReportClient import KBaseReport
+
+from .utils.PhanotateUtil import PhanotateUtil
+from kb_phate.utils.PhanotateUtil import PhanotateUtil
+
 #END_HEADER
 
 
@@ -35,6 +39,8 @@ class kb_phate:
         #BEGIN_CONSTRUCTOR
         self.callback_url = os.environ['SDK_CALLBACK_URL']
         self.shared_folder = config['scratch']
+        self.config = config
+        self.config['SDK_CALLBACK_URL'] = self.callback_url
         logging.basicConfig(format='%(created)s %(levelname)s: %(message)s',
                             level=logging.INFO)
         #END_CONSTRUCTOR
@@ -77,6 +83,8 @@ class kb_phate:
         # ctx is the context object
         # return variables are: output
         #BEGIN run_phanotate
+        import_runner = PhanotateUtil(self.config)
+        output = import_runner.run(ctx, params)
         #END run_phanotate
 
         # At some point might do deeper type checking...
