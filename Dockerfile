@@ -18,6 +18,16 @@ RUN wget http://lowelab.ucsc.edu/software/tRNAscan-SE.tar.gz \
   && make \
   && make install
 
+RUN \
+  git clone https://github.com/deprekate/fastpath.git && \
+  cd fastpath && \
+  make
+
+RUN \
+  git clone --recursive https://github.com/deprekate/PHANOTATE.git && \
+  cd PHANOTATE && \
+  make
+
 # -----------------------------------------
 
 COPY ./ /kb/module
@@ -31,13 +41,3 @@ RUN make all
 ENTRYPOINT [ "./scripts/entrypoint.sh" ]
 
 CMD [ ]
-
-RUN \
-  git clone https://github.com/deprekate/fastpath.git && \
-  cd fastpath && \
-  make
-
-RUN \
-  git clone --recursive https://github.com/deprekate/PHANOTATE.git && \
-  cd PHANOTATE && \
-  make
