@@ -59,7 +59,7 @@ class kb_phate:
         #BEGIN run_kb_phate
         report = KBaseReport(self.callback_url)
         report_info = report.create({'report': {'objects_created':[],
-                                                'text_message': params['parameter_1']},
+                                                'text_message': params['assembly_ref']},
                                                 'workspace_name': params['workspace_name']})
         output = {
             'report_name': report_info['name'],
