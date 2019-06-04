@@ -73,4 +73,5 @@ class kb_phateTest(unittest.TestCase):
         # }
 
         ret = self.serviceImpl.run_phanotate(self.ctx, {'workspace_name': self.wsName,
-                                                             'parameter_1': '**Hello World!**'})
+                                                        'assembly_ref'  : '29184/2/1',
+                                                        'genome_name'   : 'phanotate_out'})
