@@ -9,16 +9,27 @@
         "input": null,
         "output": null
     },
-    "parameters": [ 
+    "parameters": [
         {
-            "id": "parameter_1",
-            "optional": true,
+            "id": "assembly_ref",
+            "optional": false,
             "advanced": false,
             "allow_multiple": false,
             "default_values": [ "" ],
             "field_type": "text",
             "text_options": {
-                "valid_ws_types": [ ]
+                "valid_ws_types": ["KBaseFile.AssemblyFile"]
+            }
+        },
+        {
+            "id": "genome_name",
+            "optional": false,
+            "advanced": false,
+            "allow_multiple": false,
+            "default_values": [ "" ],
+            "field_type": "text",
+            "text_options": {
+                "valid_ws_types": ["KBaseGenomes.Genome"]
             }
         }
     ],
@@ -35,8 +46,12 @@
                     "narrative_system_variable": "workspace_id",
                     "target_property": "workspace_id"
                 },{
-                    "input_parameter": "parameter_1",
-                    "target_property": "parameter_1"
+                    "input_parameter": "assembly_ref",
+                    "target_property": "assembly_ref",
+                    "target_type_transform": "resolved-ref"
+                },{
+                    "input_parameter": "genome_name",
+                    "target_property": "genome_name"
                 }
             ],
             "output_mapping": [
