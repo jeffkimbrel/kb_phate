@@ -11,7 +11,6 @@ module kb_phate {
     /*
         This example function accepts any number of parameters and returns results in a KBaseReport
     */
-    funcdef run_kb_phate(mapping<string,UnspecifiedObject> params) returns (ReportResults output) authentication required;
 
     funcdef run_phanotate(mapping<string,UnspecifiedObject> params) returns (ReportResults output) authentication required;
 

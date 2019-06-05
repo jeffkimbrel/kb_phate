@@ -39,7 +39,7 @@
         "service-mapping": {
             "url": "",
             "name": "kb_phate",
-            "method": "run_kb_phate",
+            "method": "run_phanotate",
             "input_mapping": [
                 {
                     "narrative_system_variable": "workspace",

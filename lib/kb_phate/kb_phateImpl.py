@@ -46,34 +46,6 @@ class kb_phate:
         #END_CONSTRUCTOR
         pass
 
-
-    def run_kb_phate(self, ctx, params):
-        """
-        This example function accepts any number of parameters and returns results in a KBaseReport
-        :param params: instance of mapping from String to unspecified object
-        :returns: instance of type "ReportResults" -> structure: parameter
-           "report_name" of String, parameter "report_ref" of String
-        """
-        # ctx is the context object
-        # return variables are: output
-        #BEGIN run_kb_phate
-        report = KBaseReport(self.callback_url)
-        report_info = report.create({'report': {'objects_created':[],
-                                                'text_message': params['assembly_ref']},
-                                                'workspace_name': params['workspace_name']})
-        output = {
-            'report_name': report_info['name'],
-            'report_ref': report_info['ref'],
-        }
-        #END run_kb_phate
-
-        # At some point might do deeper type checking...
-        if not isinstance(output, dict):
-            raise ValueError('Method run_kb_phate return value ' +
-                             'output is not type dict as required.')
-        # return the results
-        return [output]
-
     def run_phanotate(self, ctx, params):
         """
         :param params: instance of mapping from String to unspecified object
