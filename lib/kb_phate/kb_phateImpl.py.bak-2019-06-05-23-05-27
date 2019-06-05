@@ -26,9 +26,9 @@ class kb_phate:
     # state. A method could easily clobber the state set by another while
     # the latter method is running.
     ######################################### noqa
-    VERSION = "0.2.3"
+    VERSION = "0.0.1"
     GIT_URL = "https://github.com/jeffkimbrel/kb_phate.git"
-    GIT_COMMIT_HASH = "fa4fcdaf4fc9b0ef4533ffbf3e7f13db3363a91e"
+    GIT_COMMIT_HASH = "5c0c179fdd3bd4543d30118436e887adc4a41c77"
 
     #BEGIN_CLASS_HEADER
     #END_CLASS_HEADER
@@ -46,10 +46,8 @@ class kb_phate:
         #END_CONSTRUCTOR
         pass
 
-
     def run_phanotate(self, ctx, params):
         """
-        This example function accepts any number of parameters and returns results in a KBaseReport
         :param params: instance of mapping from String to unspecified object
         :returns: instance of type "ReportResults" -> structure: parameter
            "report_name" of String, parameter "report_ref" of String
