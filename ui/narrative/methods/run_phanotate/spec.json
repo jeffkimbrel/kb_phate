@@ -4,10 +4,10 @@
         "kimbrel1"
     ],
     "contact": "",
-    "categories": ["active"],
+    "categories": ["active", "phage", "annotation", "virus"],
     "widgets": {
         "input": "kbaseNarrativeMethodInput",
-        "output": "kbaseGenomeView"
+        "output": "no-display"
     },
     "parameters": [
         {
