@@ -61,8 +61,9 @@ class PhanotateUtil:
 
         # Build HTML tables for results
         table_lines = []
-        table_lines.append("Assembly Object: " + str(summary['Assembly Object']))
-        table_lines.append("Genetic Code: " + str(summary['Genetic Code']))
+        table_lines.append("Input Object: " + str(summary['Assembly Object']))
+        table_lines.append("Output Object: " + str(genome_ref))
+        table_lines.append("Genetic Code: " + str(summary['Genetic code']))
         table_lines.append("GC content: " + str(summary['GC content']))
         table_lines.append("Contig Count: " + str(summary['Number contigs']))
         table_lines.append("CDS Count: " + str(summary['Number of CDS']))
