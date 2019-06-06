@@ -48,6 +48,43 @@ class PhanotateUtil:
 
         return self.gfu.genbank_to_genome(genome_params)['genome_info']
 
+    def generate_report(self, params, genome_ref):
+
+        output_html_files = list()
+
+        # Make report directory and copy over files
+        output_directory = os.path.join(self.scratch, str(uuid.uuid4()))
+        os.mkdir(output_directory)
+        result_file_path = os.path.join(output_directory, 'phannotate_summary.html')
+
+        # Build HTML tables for results
+        table_lines = []
+        table_lines.append(f'<h2>Hello World!</h2>')
+
+        # Write to file
+        with open(result_file_path, 'w') as result_file:
+            for line in table_lines:
+                result_file.write(line + "\n")
+
+        output_html_files.append(
+            {'path'       : output_directory,
+             'name'       : os.path.basename(result_file_path),
+             'description': 'HTML report for run_phanotate app'})
+
+        report_params = {
+            'message'                   : '',
+            'html_links'                : output_html_files,
+            'direct_html_link_index'    : 0,
+            'objects_created' : [{'ref' : genome_ref, 'description' : 'Genome with PHANOTATE gene calls'}],
+            'workspace_name'            : params['workspace_name'],
+            'report_object_name'        : f'phanotate_{uuid.uuid4()}'}
+
+        output = self.kbr.create_extended_report(report_params)
+
+        return {'output_genome_ref' : genome_ref,
+                'report_name'       : output['name'],
+                'report_ref'        : output['ref']}
+
     def run(self, ctx, params):
 
         fasta_path   = self.get_assembly(params['assembly_ref'])
@@ -59,4 +96,6 @@ class PhanotateUtil:
         genome_ref = str(genome_info[6]) + "/" + str(genome_info[0]) + "/" + str(genome_info[4])
         logging.info(genome_ref)
 
-        return {'out' : 'test'} # needed because apparently a dict needs to be returned?
+        report = self.generate_report(params, genome_ref)
+
+        return report

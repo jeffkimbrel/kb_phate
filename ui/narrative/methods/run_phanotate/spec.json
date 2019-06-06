@@ -31,7 +31,7 @@
             "field_type": "text",
             "text_options": {
                 "valid_ws_types": ["KBaseGenomes.Genome"],
-                "is_output_name":true
+                "is_output_name": true
             }
         }
     ],
@@ -58,6 +58,13 @@
             ],
             "output_mapping": [
                 {
+                    "narrative_system_variable": "workspace",
+                    "target_property": "wsName"
+                },{
+                    "service_method_output_path": [0,"obj_ref"],
+                    "target_property": "obj_ref",
+                    "target_type_transform": "resolved-ref"
+                },{
                     "service_method_output_path": [0,"report_name"],
                     "target_property": "report_name"
                 },{
