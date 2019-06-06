@@ -61,13 +61,25 @@ class PhanotateUtil:
 
         # Build HTML tables for results
         table_lines = []
-        table_lines.append("Input Object: " + str(summary['Assembly Object']))
-        table_lines.append("Output Object: " + str(genome_ref))
-        table_lines.append("Genetic Code: " + str(summary['Genetic code']))
-        table_lines.append("GC content: " + str(summary['GC content']))
-        table_lines.append("Contig Count: " + str(summary['Number contigs']))
-        table_lines.append("CDS Count: " + str(summary['Number of CDS']))
-        table_lines.append("Genome Size (bp): " + str(summary['Size']))
+        table_lines.append("PHANOTATE Results")
+        
+        # table_lines.append("Input Object: " + str(summary['Assembly Object']))
+        # table_lines.append("Output Object: " + str(genome_ref))
+        # table_lines.append("Genetic Code: " + str(summary['Genetic code']))
+        # table_lines.append("GC content: " + str(summary['GC content']))
+        # table_lines.append("Contig Count: " + str(summary['Number contigs']))
+        # table_lines.append("CDS Count: " + str(summary['Number of CDS']))
+        # table_lines.append("Genome Size (bp): " + str(summary['Size']))
+
+        table_lines.append('<table cellspacing="0" cellpadding="3" border="1"><tr><th>Parameter</th><th>Value</th></tr>')
+        table_lines.append('<tr><td>Input Object</td><td>' + str(summary['Assembly Object']) + '</td></tr>')
+        table_lines.append('<tr><td>Output Object</td><td>' + str(genome_ref) + '</td></tr>')
+        table_lines.append('<tr><td>Genetic Code</td><td>' + str(summary['Genetic code']) + '</td></tr>')
+        table_lines.append('<tr><td>GC content</td><td>' + str(summary['GC content']) + '</td></tr>')
+        table_lines.append('<tr><td>Contig Count</td><td>' + str(summary['Number contigs']) + '</td></tr>')
+        table_lines.append('<tr><td>CDS Count</td><td>' + str(summary['Number of CDS']) + '</td></tr>')
+        table_lines.append('<tr><td>Genome Size (bp)</td><td>' + str(summary['Size']) + '</td></tr>')
+        table_lines.append('</table>')
 
         table_lines.append('<br><br><br>Please cite <a href="https://academic.oup.com/bioinformatics/advance-article/doi/10.1093/bioinformatics/btz265/5480131" target="_blank">McNair, et al. 2019</a>  if you use PHANOTATE in your research.')
 
