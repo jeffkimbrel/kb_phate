@@ -2,7 +2,6 @@ import os
 import datetime
 import logging
 import uuid
-from Bio import SeqIO
 
 from installed_clients.GenomeAnnotationAPIClient import GenomeAnnotationAPI
 from installed_clients.GenomeFileUtilClient import GenomeFileUtil
@@ -49,13 +48,9 @@ class PhanotateUtil:
 
         return self.gfu.genbank_to_genome(genome_params)['genome_info']
 
-    def generate_report(self, params, genome_ref, genbank_path):
+    def generate_report(self, params, genome_ref, genome_info):
 
-        # summarize genbank file
-        feature_count = 0
-        for seq_record in SeqIO.parse(genbank_path, "genbank"):
-            for feature in seq_record.features:
-                feature_count += 1
+        summary = genome_info[10]
 
         output_html_files = list()
 
@@ -66,8 +61,14 @@ class PhanotateUtil:
 
         # Build HTML tables for results
         table_lines = []
-        table_lines.append('PHANOTATE identified ' + str(feature_count) + ' total features.')
-        table_lines.append('<br>Please cite <a href="https://academic.oup.com/bioinformatics/advance-article/doi/10.1093/bioinformatics/btz265/5480131">McNair, et al. 2019</a>  if you use PHANOTATE in your research.')
+        table_lines.append("Assembly Object: " + str(summary['Assembly Object']))
+        table_lines.append("Genetic Code: " + str(summary['Genetic Code']))
+        table_lines.append("GC content: " + str(summary['GC content']))
+        table_lines.append("Contig Count: " + str(summary['Number contigs']))
+        table_lines.append("CDS Count: " + str(summary['Number of CDS']))
+        table_lines.append("Genome Size (bp): " + str(summary['Size']))
+
+        table_lines.append('<br><br><br>Please cite <a href="https://academic.oup.com/bioinformatics/advance-article/doi/10.1093/bioinformatics/btz265/5480131" target="_blank">McNair, et al. 2019</a>  if you use PHANOTATE in your research.')
 
         # Write to file
         with open(result_file_path, 'w') as result_file:
@@ -99,11 +100,11 @@ class PhanotateUtil:
         genbank_path = self.phanotate(fasta_path)
         genome_info  = self.add_genome(genbank_path, params)
 
-        #logging.info(genome_info)
+        logging.info(genome_info)
 
         genome_ref = str(genome_info[6]) + "/" + str(genome_info[0]) + "/" + str(genome_info[4])
         #logging.info(genome_ref)
 
-        report = self.generate_report(params, genome_ref, genbank_path)
+        report = self.generate_report(params, genome_ref, genome_info)
 
         return report
